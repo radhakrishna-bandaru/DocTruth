@@ -48,7 +48,7 @@ function Dashboard() {
         if (!currentUser?.id) return;
 
         const response = await fetch(
-          `http://127.0.0.1:8000/api/dashboard/${currentUser.id}`
+          `/api/dashboard/${currentUser.id}`
         );
 
         const result = await response.json();
@@ -70,7 +70,7 @@ function Dashboard() {
         if (!currentUser?.id) return;
 
         const response = await fetch(
-          `http://127.0.0.1:8000/api/profile/${currentUser.id}`
+          `/api/profile/${currentUser.id}`
         );
 
         const result = await response.json();

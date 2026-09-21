@@ -28,7 +28,7 @@ const handleRegister = async (e) => {
   try {
     // 1. Register
     const registerResponse = await fetch(
-      "http://127.0.0.1:8000/api/auth/register",
+      "/api/auth/register",
       {
         method: "POST",
         headers: {
@@ -50,7 +50,7 @@ const handleRegister = async (e) => {
     setMessage("Account created. Signing you in...");
 
     const loginResponse = await fetch(
-      "http://127.0.0.1:8000/api/auth/login",
+      "/api/auth/login",
       {
         method: "POST",
         headers: {

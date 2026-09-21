@@ -27,7 +27,7 @@ function Notifications() {
     }
 
     fetch(
-      `http://127.0.0.1:8000/api/notifications/${user.id}`
+      `/api/notifications/${user.id}`
     )
       .then((response) => response.json())
       .then((data) => {

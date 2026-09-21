@@ -61,7 +61,7 @@ const toggleDarkMode = () => {
       formData.append("user_id", user.id);
 
       const uploadResponse = await fetch(
-        "http://127.0.0.1:8000/api/upload",
+        "/api/upload",
         {
           method: "POST",
           body: formData,
@@ -97,7 +97,7 @@ const toggleDarkMode = () => {
       ocrFormData.append("file", file);
 
       const ocrResponse = await fetch(
-        `http://127.0.0.1:8000/api/ocr/${documentId}`,
+        `/api/ocr/${documentId}`,
         {
           method: "POST",
           body: ocrFormData,

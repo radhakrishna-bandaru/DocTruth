@@ -28,7 +28,7 @@ function Profile() {
   useEffect(() => {
     if (!user?.id) return;
 
-    fetch(`http://127.0.0.1:8000/api/profile/${user.id}`)
+    fetch(`/api/profile/${user.id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
@@ -86,7 +86,7 @@ function Profile() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/profile/${user.id}`,
+        `/api/profile/${user.id}`,
         {
           method: "PUT",
           headers: {

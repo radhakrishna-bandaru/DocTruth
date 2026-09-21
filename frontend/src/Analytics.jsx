@@ -49,7 +49,7 @@ function Analytics() {
         if (!user?.id) return;
 
         const response = await fetch(
-          `http://127.0.0.1:8000/api/dashboard/${user.id}`
+          `/api/dashboard/${user.id}`
         );
 
         const result = await response.json();
