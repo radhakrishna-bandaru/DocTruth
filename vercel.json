@@ -7,7 +7,7 @@
    "backend": {
   "root": "backend/",
   "runtime": "container",
-  "entrypoint": "Dockerfile.vercel"
+  "entrypoint": "Dockerfile.ocr"
 }
   },
   "rewrites": [
