@@ -6,7 +6,7 @@ def clean_name(name):
 
     # Remove OCR garbage at the end
     name = re.sub(
-        r"\s+(wig|w1g|wigg|v1g)$",
+        r"\s+(wig|w1g|wigg|v1g|whig)$",
         "",
         name,
         flags=re.IGNORECASE
