@@ -167,7 +167,7 @@ function Login() {
             <button
               type="button"
               onClick={() => {
-                window.location.href = "/register";
+                window.navigate("/register");
               }}
             >
               Create Account

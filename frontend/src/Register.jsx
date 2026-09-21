@@ -230,7 +230,7 @@ const handleRegister = async (e) => {
             <button
               type="button"
               onClick={() => {
-                window.location.href = "/";
+                window.navigate("/");
               }}
             >
               Login

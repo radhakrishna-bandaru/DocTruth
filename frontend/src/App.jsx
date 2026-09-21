@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Login from "./Login";
 import Register from "./Register";
@@ -11,109 +11,64 @@ import Profile from "./Profile";
 import Settings from "./Settings";
 import DocumentDetails from "./DocumentDetails";
 
-function SimplePage({ title, icon, description }) {
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        padding: "60px",
-        background: "#f7f9ff",
-        fontFamily: "Inter, Arial",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "900px",
-          margin: "auto",
-          background: "white",
-          padding: "45px",
-          borderRadius: "25px",
-          boxShadow: "0 15px 40px rgba(50,60,130,.08)",
-        }}
-      >
-        <div style={{ fontSize: "45px" }}>
-          {icon}
-        </div>
-
-        <h1
-          style={{
-            color: "#14213d",
-            marginTop: "15px",
-          }}
-        >
-          {title}
-        </h1>
-
-        <p
-          style={{
-            color: "#71809f",
-            marginTop: "10px",
-          }}
-        >
-          {description}
-        </p>
-
-        <button
-          onClick={() =>
-            (window.location.href = "/dashboard")
-          }
-          style={{
-            marginTop: "25px",
-            border: "none",
-            padding: "13px 22px",
-            borderRadius: "12px",
-            background:
-              "linear-gradient(100deg,#306cff,#a334ff)",
-            color: "white",
-            cursor: "pointer",
-            fontWeight: "700",
-          }}
-        >
-          ← Back to Dashboard
-        </button>
-      </div>
-    </div>
-  );
-}
-
 function App() {
-  const path = window.location.pathname;
+  const [path, setPath] = useState(window.location.pathname);
 
-  const [page] = useState(path);
+  useEffect(() => {
+    const handleNavigation = () => {
+      setPath(window.location.pathname);
+    };
 
-  if (page === "/dashboard") {
+    window.addEventListener("popstate", handleNavigation);
+
+    return () => {
+      window.removeEventListener("popstate", handleNavigation);
+    };
+  }, []);
+
+  const navigate = (newPath) => {
+    window.history.pushState({}, "", newPath);
+    setPath(newPath);
+  };
+
+  // Make navigation available to all pages
+  window.navigate = navigate;
+
+  if (path === "/dashboard") {
     return <Dashboard />;
   }
 
-  if (page === "/upload") {
+  if (path === "/upload") {
     return <UploadDocument />;
   }
 
-  if (page === "/documents") {
-  return <Documents />;
-}
+  if (path === "/documents") {
+    return <Documents />;
+  }
 
- if (page === "/analytics") {
-  return <Analytics />;
-}
+  if (path === "/analytics") {
+    return <Analytics />;
+  }
 
-if (page === "/notifications") {
-  return <Notifications />;
-}
-if (page === "/profile") {
-  return <Profile />;
-} 
+  if (path === "/notifications") {
+    return <Notifications />;
+  }
 
-if (page === "/settings") {
-  return <Settings />;
-}
+  if (path === "/profile") {
+    return <Profile />;
+  }
 
-  if (page === "/register") {
+  if (path === "/settings") {
+    return <Settings />;
+  }
+
+  if (path === "/register") {
     return <Register />;
   }
-  if (page.startsWith("/document/")) {
-  return <DocumentDetails />;
-}
+
+  if (path.startsWith("/document/")) {
+    return <DocumentDetails />;
+  }
 
   return <Login />;
 }
