@@ -3,7 +3,12 @@ from PIL import Image, ImageEnhance, ImageFilter
 import fitz
 
 
-pytesseract.pytesseract.tesseract_cmd = r"D:\Tesseract-OCR\tesseract.exe"
+import os
+
+if os.name == "nt":
+    pytesseract.pytesseract.tesseract_cmd = r"D:\Tesseract-OCR\tesseract.exe"
+else:
+    pytesseract.pytesseract.tesseract_cmd = "tesseract"
 
 
 def improve_image(image):
