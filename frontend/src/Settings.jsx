@@ -17,7 +17,7 @@ function Settings() {
   );
 
   const go = (path) => {
-    window.location.href = path;
+    window.navigate(path);
   };
 
   // Apply dark mode immediately
@@ -72,7 +72,7 @@ function Settings() {
     localStorage.removeItem("user");
     localStorage.removeItem("access_token");
 
-    window.location.href = "/";
+    window.navigate("/");
   };
 
   return (

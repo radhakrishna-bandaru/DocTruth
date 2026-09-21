@@ -98,12 +98,12 @@ function Dashboard() {
   }, [darkMode]);
 
   const go = (path) => {
-    window.location.href = path;
+    window.navigate(path);
   };
 
   const logout = () => {
     localStorage.clear();
-    window.location.href = "/";
+    window.navigate("/");
   };
 
   const toggleDarkMode = () => {

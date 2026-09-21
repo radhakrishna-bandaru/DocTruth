@@ -22,7 +22,7 @@ function Profile() {
   const [message, setMessage] = useState("");
 
   const go = (path) => {
-    window.location.href = path;
+    window.navigate(path);
   };
 
   useEffect(() => {

@@ -89,7 +89,7 @@ const handleRegister = async (e) => {
     );
 
     // 4. Direct Dashboard
-    window.location.href = "/dashboard";
+    window.navigate("/dashboard");
 
   } catch (error) {
     console.error("Registration error:", error);

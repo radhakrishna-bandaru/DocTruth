@@ -41,7 +41,7 @@ function Login() {
         localStorage.setItem("access_token", data.access_token);
         localStorage.setItem("user", JSON.stringify(data.user));
 
-        window.location.href = "/dashboard";
+        window.navigate("/dashboard");
       } else {
         setMessage(data.detail || "Invalid email or password");
       }
